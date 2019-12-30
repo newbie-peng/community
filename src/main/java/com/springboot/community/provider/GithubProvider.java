@@ -29,7 +29,7 @@ public class GithubProvider {
         try (Response response = client.newCall(request).execute()) {
             try {
                 String string = response.body().string();
-                System.out.println(string);
+//                System.out.println(string);
                 return string.split("&")[0];
             } catch (IOException e) {
             }
