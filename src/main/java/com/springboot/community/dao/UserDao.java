@@ -31,10 +31,10 @@ public interface UserDao {
 
     /**
      * 根据制定的条件查询数据库中用户的数据
-     * @param Connection 制定的条件
+     * @param connection 制定的条件
      * @return 返回查询到的用户信息
      */
-    public User selectBy(String Connection);
+    public User selectBy(String connection);
 
     /**
      * 查询数据库中所有的用户数据

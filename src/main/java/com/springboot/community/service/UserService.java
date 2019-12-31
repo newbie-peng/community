@@ -21,4 +21,9 @@ public class UserService {
         }
         return false;
     }
+    public static User selectBy(String connection){
+        UserDao userDao=new UserDaoImpl();
+        User user = userDao.selectBy(connection);
+        return user;
+    }
 }

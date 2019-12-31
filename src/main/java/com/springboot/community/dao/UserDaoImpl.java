@@ -3,6 +3,8 @@ package com.springboot.community.dao;
 import com.springboot.community.model.User;
 import com.springboot.community.util.DbLinkUtils;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 
 import javax.management.Query;
 import java.sql.SQLException;
@@ -37,7 +39,14 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User selectBy(String Connection) {
+    public User selectBy(String connection) {
+        QueryRunner queryRunner = new QueryRunner(DbLinkUtils.getDataSource());
+        String sql = "select * from users where token=?";
+        try {
+            User query = queryRunner.query(sql, new BeanHandler<>(User.class), connection);
+            return query;
+        } catch (SQLException e) {
+        }
         return null;
     }
 
